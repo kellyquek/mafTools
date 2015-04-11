@@ -1,0 +1,10 @@
+Package: mafTools
+Type: Package
+Title: A set of functions for processing MAF (Mutation Annotation Format) files.
+Version: 1.0
+Date: 2015-03-29
+Author: Anand MT <anand_mt@hotmail.com>
+Maintainer: Anand MT <anand_mt@hotmail.com>
+Description: Set of functions to get basic stats about a MAF file. Eg; get how many mutations per patient (sample), Classify mutations into Transtions and Transversions, Plot highly mutated genes as matrix,etc.
+Depends: ggplot2, plyr, reshape
+License: MIT
