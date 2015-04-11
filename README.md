@@ -5,6 +5,7 @@ With advances in Cancer Genomics, maf format is being widley accepted and used t
 
 #### Installation:
 `library("devtools")`
+
 `install_github(repo = "PoisonAlien/mafTools")`
 
 #### Dependencies: 
