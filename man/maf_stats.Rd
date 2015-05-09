@@ -2,14 +2,14 @@
 % Please edit documentation in R/maf_stats.R
 \name{maf_stats}
 \alias{maf_stats}
-\title{Basic statistics about MAF file.}
+\title{Basic information about the input MAF file.}
 \usage{
 maf_stats(maf_file, removeSilent = TRUE)
 }
 \arguments{
 \item{maf_file}{input file in MAF format.}
 
-\item{removeSilent}{removeSilent logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR"). Default is TRUE.}
+\item{removeSilent}{logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR"). Default is TRUE.}
 }
 \value{
 returns a list of data frames with number of mutations per sample, mutations classified according to variant type and variant classification.

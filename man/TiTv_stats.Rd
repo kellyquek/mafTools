@@ -4,7 +4,7 @@
 \alias{TiTv_stats}
 \title{Classify SNVs into Transitions and Tranversions.}
 \usage{
-TiTv_stats(maf_file, is_maf = TRUE, plot = TRUE)
+TiTv_stats(maf_file, is_maf = TRUE, plot = TRUE, header = TRUE)
 }
 \arguments{
 \item{maf_file}{input file either in MAF format or six column format.}
@@ -12,6 +12,8 @@ TiTv_stats(maf_file, is_maf = TRUE, plot = TRUE)
 \item{is_maf}{logical. Whether input is in MAF or not. Default is TRUE.}
 
 \item{plot}{logical. Plots distribution of various conversion events as a boxplot.}
+
+\item{header}{logical. Whether input file has a header line. Default is TRUE.}
 }
 \value{
 returns a list of dataframes containing raw counts classified into six different classes and fraction of conversion for each sample.
