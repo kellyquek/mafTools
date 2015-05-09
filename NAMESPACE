@@ -3,6 +3,7 @@
 export(TiTv_stats)
 export(maf_stats)
 export(oncoPlot)
+export(oncotate)
 import(ggplot2)
 import(plyr)
 import(reshape)
