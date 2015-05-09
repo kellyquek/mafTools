@@ -1,9 +1,9 @@
-#' Basic statistics about MAF file.
+#' Basic information about the input MAF file.
 #' 
 #' Takes MAF file as input and gives intial impression of the data, such as number of mutations per sample, variant types, etc. Also plots barplot and boxplot of variant distributions.
 #' 
 #' @param maf_file input file in MAF format.
-#' @param removeSilent removeSilent logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR"). Default is TRUE.
+#' @param removeSilent logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR"). Default is TRUE.
 #' @import ggplot2
 #' @import plyr
 #' @import reshape
