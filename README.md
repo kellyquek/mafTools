@@ -4,7 +4,13 @@ With advances in Cancer Genomics, maf format is being widley accepted and used t
 [The Cancer Genome Atlas](http://cancergenome.nih.gov) Project has seqenced over 30 different cancers with sample size of each cancer type being over 200. The [resulting data](https://wiki.nci.nih.gov/display/TCGA/TCGA+MAF+Files) consisting of genetic variants is stored in the form of [Mutation Annotation Format](https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification). This package attempts to summerize such files either from TCGA or in house studies by providing various functions for plotting and parsing. 
 
 #### Dependencies: 
-Make sure you have following packages instaled - plyr, rjson, reshape, ggplot2, RColorBrewer, [ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap), gridExtra.
+Make sure you have following packages installed - plyr, rjson, reshape, ggplot2, RColorBrewer, [ComplexHeatmap](https://github.com/jokergoo/ComplexHeatmap), gridExtra.
+
+#### Installation: 
+`library(devtools)`
+
+`install_github(repo = "PoisonAlien/mafTools")`
+
 
 Four main functions:
 
