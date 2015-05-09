@@ -6,14 +6,15 @@
 #'  @param maf_file input file either in MAF format or six column format.
 #'  @param is_maf logical. Whether input is in MAF or not. Default is TRUE.
 #'  @param plot logical. Plots distribution of various conversion events as a boxplot.
+#'  @param header logical. Whether input file has a header line. Default is TRUE.
 #'  @return returns a list of dataframes containing raw counts classified into six different classes and fraction of conversion for each sample.
 #'  @export   
 
-TiTv_stats <- function(maf_file,is_maf = TRUE,plot = TRUE){
+TiTv_stats = function(maf_file,is_maf = TRUE,plot = TRUE, header = TRUE){
   
   
   if(is_maf){
-    tot.muts = read.delim(file = maf_file,header = T,sep = "\t",stringsAsFactors = F,comment.char = "#",)
+    tot.muts = read.delim(file = maf_file,header = header,sep = "\t",stringsAsFactors = F,comment.char = "#",)
     tot.muts = split(tot.muts,as.factor(as.character(tot.muts$Variant_Type)))$'SNP'
     tot.muts = tot.muts[,c("Chromosome","Start_Position","End_Position","Reference_Allele","Tumor_Seq_Allele2","Tumor_Sample_Barcode")]
   } else{
