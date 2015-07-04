@@ -5,7 +5,7 @@
 #' while taking care of format conversion.
 #' 
 #' @param maf_file input file in MAF format.
-#' @param removeSilent logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR") before forming matrix. Default is TRUE.
+#' @param removeSilent logical. Whether to discard silent mutations ("Silent","Intron","RNA","3'UTR","3'Flank","5'UTR","5'Flank","IGR") before forming matrix. Default is TRUE.
 #' @param oncoPlot logical. Whether to plot mutation matrix (Upto top 20 genes). Default is TRUE. 
 #' @param writeMatrix Writes the transformed maf file as a tab delimited text file, to be opened by spreadsheet applications.
 #' @param top How many top n genes to plot. Defaults to 20.
@@ -21,7 +21,7 @@ oncoPlot = function(maf_file, removeSilent = TRUE,oncoPlot = TRUE,writeMatrix = 
   tot.muts = tot.muts[,c("Hugo_Symbol","Tumor_Sample_Barcode","Variant_Classification","Variant_Type")]
   
   if(removeSilent){
-    tot.muts = tot.muts[!tot.muts$Variant_Classification %in% c("Silent","Intron","RNA","3'UTR"),]  
+    tot.muts = tot.muts[!tot.muts$Variant_Classification %in% c("Silent","Intron","RNA","3'UTR","3'Flank","5'UTR","5'Flank","IGR"),]  
   }
   
   barcode.split = split(tot.muts,as.factor(as.character(tot.muts$Tumor_Sample_Barcode)))
@@ -100,18 +100,21 @@ oncoPlot = function(maf_file, removeSilent = TRUE,oncoPlot = TRUE,writeMatrix = 
   mat_origin = as.matrix(mdf.copy)
   mat = mat_origin[1:top,]
   
-  if(length(variant.classes) <= 9 ){
-    type_col = structure(brewer.pal(length(variant.classes),name = "Set1"), names = variant.classes)
-  } else{
-    type_col = structure(rainbow(n = length(variant.classes),alpha = 1), names = variant.classes)
-  }
-
+  col = c(brewer.pal(12,name = "Paired"),brewer.pal(11,name = "Spectral")[1:3],'maroon')
+  names(col) = names = c('Nonstop_Mutation','Frame_Shift_Del','Intron','Missense_Mutation','IGR','Nonsense_Mutation','RNA','Splice_Site','In_Frame_Del','Frame_Shift_Ins','Silent','In_Frame_Ins','ITD','In_Frame_Ins','Translation_Start_Site',"two_hit")
+  
+  #if(length(variant.classes) <= 9 ){
+  #  type_col = structure(brewer.pal(length(variant.classes),name = "Set1"), names = variant.classes)
+  #} else{
+  #  type_col = structure(rainbow(n = length(variant.classes),alpha = 1), names = variant.classes)
+  #}
+  
+  type_col = structure(col[variant.classes], names = names(col[variant.classes]))
   type_name = structure(variant.classes,names = variant.classes)
   
   if(writeMatrix){
     write.table(mat_origin,"onco_matrix.txt",sep = "\t",quote = F)
   }
-  
   
   if(oncoPlot){
     
